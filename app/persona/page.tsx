@@ -76,7 +76,7 @@ function PersonaCard({
             </p>
           </div>
         </div>
-        <div className="bg-white space-y-4">
+        <div className="bg-black space-y-4">
           <Section title="Goals" items={goals} />
           <Section title="Behaviors" items={behaviors} />
           <Section title="Motivations" items={motivations} />
@@ -92,7 +92,7 @@ function Section({ title, items }: { title: string; items: string[] }) {
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
       <ul className="list-disc pl-5 space-y-1">
         {items.map((item, index) => (
-          <li key={index} className="text-gray-700">
+          <li key={index} className="text-white-700">
             {item}
           </li>
         ))}
