@@ -15,8 +15,8 @@ export default function Home() {
           href="/persona"
           className="bg-blue-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
         >
-          <h2 className="text-2xl font-semibold mb-2 text-white">Persona</h2>
-          <p className="text-white">
+          <h2 className="text-2xl font-semibold mb-2 text-black">Persona</h2>
+          <p className="text-black">
             Discover the user personas we've created for this project.
           </p>
         </Link>
@@ -24,8 +24,8 @@ export default function Home() {
           href="/scenario"
           className="bg-green-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
         >
-          <h2 className="text-2xl font-semibold mb-2 text-white">Scenario</h2>
-          <p className="text-white">
+          <h2 className="text-2xl font-semibold mb-2 text-black">Scenario</h2>
+          <p className="text-black">
             Explore the scenarios we've developed for our users.
           </p>
         </Link>
@@ -33,8 +33,8 @@ export default function Home() {
           href="/storyboard"
           className="bg-yellow-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
         >
-          <h2 className="text-2xl font-semibold mb-2 text-white">Storyboard</h2>
-          <p className="text-white">
+          <h2 className="text-2xl font-semibold mb-2 text-black">Storyboard</h2>
+          <p className="text-black">
             View our storyboards that illustrate user journeys.
           </p>
         </Link>
@@ -42,8 +42,8 @@ export default function Home() {
           href="/moodboard"
           className="bg-purple-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
         >
-          <h2 className="text-2xl font-semibold mb-2 text-white">Moodboard</h2>
-          <p className="text-white">
+          <h2 className="text-2xl font-semibold mb-2 text-black">Moodboard</h2>
+          <p className="text-black">
             See the visual inspiration behind our design choices.
           </p>
         </Link>
