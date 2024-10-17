@@ -57,14 +57,14 @@ function ScenarioCard({
   outcomes,
 }: ScenarioCardProps) {
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="bg-black rounded-lg shadow-lg overflow-hidden">
       <div className="p-6">
         <h2 className="text-2xl font-bold mb-2">{title}</h2>
-        <p className="text-gray-600 mb-4">{persona}</p>
+        <p className="text-black-600 mb-4">{persona}</p>
         <div className="space-y-4">
           <div>
             <h3 className="text-xl font-semibold mb-2">Scenario</h3>
-            <p className="text-gray-700 whitespace-pre-line">{scenario}</p>
+            <p className="text-black-700 whitespace-pre-line">{scenario}</p>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-2">Outcomes</h3>

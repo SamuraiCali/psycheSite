@@ -66,12 +66,12 @@ function PersonaCard({
   motivations,
 }: PersonaCardProps) {
   return (
-    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div className="bg-black rounded-lg shadow-lg overflow-hidden">
       <div className="p-6">
         <div className="flex items-center mb-4">
           <div className="ml-4">
             <h2 className="text-2xl font-bold">{name}</h2>
-            <p className="text-gray-600">
+            <p className="text-black-600">
               {age} years old, {occupation}
             </p>
           </div>

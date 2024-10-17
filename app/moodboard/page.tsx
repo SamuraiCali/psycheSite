@@ -70,10 +70,10 @@ interface MoodboardItemProps {
 
 function MoodboardItem({ title, description }: MoodboardItemProps) {
   return (
-    <div className="bg-gray-100 rounded-lg overflow-hidden">
+    <div className="bg-black rounded-lg overflow-hidden">
       <div className="p-4">
         <h3 className="text-lg font-semibold mb-2">{title}</h3>
-        <p className="text-gray-700 text-sm">{description}</p>
+        <p className="text-black-700 text-sm">{description}</p>
       </div>
     </div>
   );
