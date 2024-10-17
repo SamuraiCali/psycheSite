@@ -48,7 +48,23 @@ export default function PersonaPage() {
   );
 }
 
-function PersonaCard({ name, age, occupation, goals, behaviors, motivations }) {
+interface PersonaCardProps {
+  name: string;
+  age: number;
+  occupation: string;
+  goals: string[];
+  behaviors: string[];
+  motivations: string[];
+}
+
+function PersonaCard({
+  name,
+  age,
+  occupation,
+  goals,
+  behaviors,
+  motivations,
+}: PersonaCardProps) {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="p-6">
