@@ -70,7 +70,7 @@ function ScenarioCard({
             <h3 className="text-xl font-semibold mb-2">Outcomes</h3>
             <ul className="list-disc pl-5 space-y-1">
               {outcomes.map((outcome, index) => (
-                <li key={index} className="text-gray-700">
+                <li key={index} className="text-white-700">
                   {outcome}
                 </li>
               ))}

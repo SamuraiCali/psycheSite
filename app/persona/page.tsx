@@ -76,7 +76,7 @@ function PersonaCard({
             </p>
           </div>
         </div>
-        <div className="space-y-4">
+        <div className="bg-white space-y-4">
           <Section title="Goals" items={goals} />
           <Section title="Behaviors" items={behaviors} />
           <Section title="Motivations" items={motivations} />
