@@ -7,7 +7,6 @@ export default function PersonaPage() {
           name="Emily Chen"
           age={28}
           occupation="Marketing Manager"
-          image="/placeholder.svg?height=200&width=200"
           goals={[
             "Understand her personality traits to improve work relationships",
             "Manage stress and anxiety more effectively",
@@ -28,7 +27,6 @@ export default function PersonaPage() {
           name="Michael Johnson"
           age={35}
           occupation="HR Specialist"
-          image="/placeholder.svg?height=200&width=200"
           goals={[
             "Implement effective psychological evaluation tools for hiring",
             "Improve team dynamics by understanding individual personalities",
@@ -50,26 +48,11 @@ export default function PersonaPage() {
   );
 }
 
-function PersonaCard({
-  name,
-  age,
-  occupation,
-  image,
-  goals,
-  behaviors,
-  motivations,
-}) {
+function PersonaCard({ name, age, occupation, goals, behaviors, motivations }) {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="p-6">
         <div className="flex items-center mb-4">
-          <Image
-            src={image}
-            alt={name}
-            width={80}
-            height={80}
-            className="rounded-full"
-          />
           <div className="ml-4">
             <h2 className="text-2xl font-bold">{name}</h2>
             <p className="text-gray-600">
