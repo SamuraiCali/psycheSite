@@ -15,29 +15,37 @@ export default function Home() {
           href="/persona"
           className="bg-blue-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
         >
-          <h2 className="text-2xl font-semibold mb-2">Persona</h2>
-          <p>Discover the user personas we've created for this project.</p>
+          <h2 className="text-2xl font-semibold mb-2 text-white">Persona</h2>
+          <p className="text-white">
+            Discover the user personas we've created for this project.
+          </p>
         </Link>
         <Link
           href="/scenario"
           className="bg-green-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
         >
-          <h2 className="text-2xl font-semibold mb-2">Scenario</h2>
-          <p>Explore the scenarios we've developed for our users.</p>
+          <h2 className="text-2xl font-semibold mb-2 text-white">Scenario</h2>
+          <p className="text-white">
+            Explore the scenarios we've developed for our users.
+          </p>
         </Link>
         <Link
           href="/storyboard"
           className="bg-yellow-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
         >
-          <h2 className="text-2xl font-semibold mb-2">Storyboard</h2>
-          <p>View our storyboards that illustrate user journeys.</p>
+          <h2 className="text-2xl font-semibold mb-2 text-white">Storyboard</h2>
+          <p className="text-white">
+            View our storyboards that illustrate user journeys.
+          </p>
         </Link>
         <Link
           href="/moodboard"
           className="bg-purple-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
         >
-          <h2 className="text-2xl font-semibold mb-2">Moodboard</h2>
-          <p>See the visual inspiration behind our design choices.</p>
+          <h2 className="text-2xl font-semibold mb-2 text-white">Moodboard</h2>
+          <p className="text-white">
+            See the visual inspiration behind our design choices.
+          </p>
         </Link>
       </div>
     </div>
