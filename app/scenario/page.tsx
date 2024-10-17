@@ -43,7 +43,19 @@ export default function ScenarioPage() {
   );
 }
 
-function ScenarioCard({ title, persona, scenario, outcomes }) {
+interface ScenarioCardProps {
+  title: string;
+  persona: string;
+  scenario: string;
+  outcomes: string[];
+}
+
+function ScenarioCard({
+  title,
+  persona,
+  scenario,
+  outcomes,
+}: ScenarioCardProps) {
   return (
     <div className="bg-white rounded-lg shadow-lg overflow-hidden">
       <div className="p-6">

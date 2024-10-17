@@ -39,7 +39,12 @@ export default function StoryboardPage() {
   );
 }
 
-function StoryboardPanel({ title, description }) {
+interface StoryboardPanelProps {
+  title: string;
+  description: string;
+}
+
+function StoryboardPanel({ title, description }: StoryboardPanelProps) {
   return (
     <div className="bg-gray-100 rounded-lg overflow-hidden">
       <div className="p-4">

@@ -63,7 +63,12 @@ export default function MoodboardPage() {
   );
 }
 
-function MoodboardItem({ title, description }) {
+interface MoodboardItemProps {
+  title: string;
+  description: string;
+}
+
+function MoodboardItem({ title, description }: MoodboardItemProps) {
   return (
     <div className="bg-gray-100 rounded-lg overflow-hidden">
       <div className="p-4">

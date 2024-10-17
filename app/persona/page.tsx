@@ -70,7 +70,7 @@ function PersonaCard({ name, age, occupation, goals, behaviors, motivations }) {
   );
 }
 
-function Section({ title, items }) {
+function Section({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
       <h3 className="text-xl font-semibold mb-2">{title}</h3>
