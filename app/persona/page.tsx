@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function PersonaPage() {
   return (
     <div className="space-y-8">

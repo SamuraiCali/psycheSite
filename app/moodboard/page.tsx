@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function MoodboardPage() {
   return (
     <div className="space-y-8">
@@ -11,32 +9,26 @@ export default function MoodboardPage() {
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             <MoodboardItem
-              image="/placeholder.svg?height=200&width=200"
               title="Calming Blues"
               description="Soft blue tones evoke trust, tranquility, and professionalism."
             />
             <MoodboardItem
-              image="/placeholder.svg?height=200&width=200"
               title="Warm Accents"
               description="Touches of warm colors for a welcoming, encouraging atmosphere."
             />
             <MoodboardItem
-              image="/placeholder.svg?height=200&width=200"
               title="Clean Typography"
               description="Modern, readable fonts for clear communication of complex information."
             />
             <MoodboardItem
-              image="/placeholder.svg?height=200&width=200"
               title="Intuitive Icons"
               description="Simple, meaningful icons to guide users through the platform."
             />
             <MoodboardItem
-              image="/placeholder.svg?height=200&width=200"
               title="Soothing Imagery"
               description="Nature-inspired visuals to create a sense of growth and reflection."
             />
             <MoodboardItem
-              image="/placeholder.svg?height=200&width=200"
               title="Data Visualization"
               description="Clear, engaging charts and graphs for presenting assessment results."
             />
@@ -71,16 +63,9 @@ export default function MoodboardPage() {
   );
 }
 
-function MoodboardItem({ image, title, description }) {
+function MoodboardItem({ title, description }) {
   return (
     <div className="bg-gray-100 rounded-lg overflow-hidden">
-      <Image
-        src={image}
-        alt={title}
-        width={200}
-        height={200}
-        className="w-full"
-      />
       <div className="p-4">
         <h3 className="text-lg font-semibold mb-2">{title}</h3>
         <p className="text-gray-700 text-sm">{description}</p>
