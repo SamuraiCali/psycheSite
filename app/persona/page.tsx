@@ -1,3 +1,4 @@
+import Image from 'next/image'
 export default function PersonaPage() {
   return (
     <div className="space-y-8">
@@ -22,6 +23,7 @@ export default function PersonaPage() {
             "Improving mental health and well-being",
             "Enhancing professional performance through better self-understanding",
           ]}
+          portrait_path="/images/portrait_emilychen.png"
         />
         <PersonaCard
           name="Michael Johnson"
@@ -42,6 +44,7 @@ export default function PersonaPage() {
             "Reducing employee turnover through better job fit",
             "Establishing his company as a leader in employee well-being",
           ]}
+          portrait_path="/images/portrait_michaeljohnson.png"
         />
       </div>
     </div>
@@ -55,6 +58,7 @@ interface PersonaCardProps {
   goals: string[];
   behaviors: string[];
   motivations: string[];
+  portrait_path: string;
 }
 
 function PersonaCard({
@@ -64,11 +68,18 @@ function PersonaCard({
   goals,
   behaviors,
   motivations,
+  portrait_path
 }: PersonaCardProps) {
   return (
     <div className="bg-black rounded-lg shadow-lg overflow-hidden">
       <div className="p-6">
         <div className="flex items-center mb-4">
+        <Image
+            src={portrait_path}
+            width={256}
+            height={256}
+            alt={`${name}'s portrait`}
+          />
           <div className="ml-4">
             <h2 className="text-2xl font-bold">{name}</h2>
             <p className="text-black-600">
