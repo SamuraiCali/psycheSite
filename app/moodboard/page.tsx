@@ -1,3 +1,4 @@
+import Image from 'next/image'
 export default function MoodboardPage() {
   return (
     <div className="space-y-8">
@@ -11,26 +12,32 @@ export default function MoodboardPage() {
             <MoodboardItem
               title="Calming Blues"
               description="Soft blue tones evoke trust, tranquility, and professionalism."
+              path_to_icon="/images/moodboard_calmingblues.webp"
             />
             <MoodboardItem
               title="Warm Accents"
               description="Touches of warm colors for a welcoming, encouraging atmosphere."
+              path_to_icon="/images/moodboard_warmaccents.webp"
             />
             <MoodboardItem
               title="Clean Typography"
               description="Modern, readable fonts for clear communication of complex information."
+              path_to_icon="/images/moodboard_topography.webp"
             />
             <MoodboardItem
               title="Intuitive Icons"
               description="Simple, meaningful icons to guide users through the platform."
+              path_to_icon="/images/moodboard_inticon.webp"
             />
             <MoodboardItem
               title="Soothing Imagery"
               description="Nature-inspired visuals to create a sense of growth and reflection."
+              path_to_icon="/images/moodboard_soothingimagery.webp"
             />
             <MoodboardItem
               title="Data Visualization"
               description="Clear, engaging charts and graphs for presenting assessment results."
+              path_to_icon="/images/moodboard_data.webp"
             />
           </div>
         </div>
@@ -68,13 +75,25 @@ export default function MoodboardPage() {
 interface MoodboardItemProps {
   title: string;
   description: string;
+  path_to_icon:string;
 }
 
-function MoodboardItem({ title, description }: MoodboardItemProps) {
+function MoodboardItem({ title, description, path_to_icon }: MoodboardItemProps) {
   return (
     <div className="bg-black rounded-lg overflow-hidden">
       <div className="p-4">
-        <h3 className="text-lg font-semibold mb-2">{title}</h3>
+      <div className="flex items-center mb-4">
+        <Image
+            src={path_to_icon}
+            width={64}
+            height={64}
+            alt={`${title}`}
+            className='rounded-lg'
+          />
+          <div className="ml-4">
+            <h3 className="text-lg font-semibold mb-2">{title}</h3>
+          </div>
+        </div>
         <p className="text-black-700 text-sm">{description}</p>
       </div>
     </div>
