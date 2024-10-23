@@ -6,7 +6,7 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "UX Design Project",
+  title: "Psyche",
   description: "Showcasing our UX design process",
 };
 
@@ -23,7 +23,7 @@ export default function RootLayout({
             <ul className="flex flex-wrap justify-between items-center">
               <li>
                 <Link href="/" className="text-xl font-bold">
-                  UX Design Project
+                  Psyche
                 </Link>
               </li>
               <li className="flex space-x-4">
