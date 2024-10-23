@@ -36,7 +36,7 @@ export default function StoryboardPage() {
             />
           </div>
           <Image
-            src="/images/StoryboardForPsyche.jpeg"
+            src="/images/StoryboardForPsyche.webp"
             alt="Emily's Psyche Experience"
             width={1200}
             height={800}
