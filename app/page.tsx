@@ -3,9 +3,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="space-y-8">
-      <h1 className="text-4xl font-bold text-center mb-8">
-        Welcome to Our UX Design Project
-      </h1>
+      <h1 className="text-4xl font-bold text-center mb-8">Welcome to Psyche</h1>
       <p className="text-xl text-center mb-8">
         Explore our UX design process through Personas, Scenarios, Storyboards,
         and Moodboards.
