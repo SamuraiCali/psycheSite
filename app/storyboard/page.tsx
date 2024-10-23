@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function StoryboardPage() {
   return (
     <div className="space-y-8">
@@ -33,6 +35,13 @@ export default function StoryboardPage() {
               description="Emily creates a shareable summary of her profile and schedules a meeting with her manager to discuss how to optimize her work environment."
             />
           </div>
+          <Image
+            src="/images/StoryboardForPsyche.jpeg"
+            alt="Emily's Psyche Experience"
+            width={1200}
+            height={800}
+            className="mt-6"
+          />
         </div>
       </div>
     </div>
