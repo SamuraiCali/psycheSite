@@ -5,7 +5,8 @@ export default function Home() {
     <div className="space-y-8">
       <h1 className="text-4xl font-bold text-center mb-8">Welcome to Psyche</h1>
       <p className="text-xl text-center mb-8">
-        Explore our UX design process through Personas, Scenarios, Storyboards, Moodboards, and Flowcharts.
+        Explore our UX design process through Personas, Scenarios, Storyboards,
+        Moodboards, and Flowcharts.
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <Link
@@ -50,7 +51,7 @@ export default function Home() {
         >
           <h2 className="text-2xl font-semibold mb-2 text-black">Flowchart</h2>
           <p className="text-black">
-            Placeholder Flowchart Text.
+            See our flowchart that illustrates the user journey.
           </p>
         </Link>
       </div>
