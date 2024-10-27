@@ -110,6 +110,7 @@ const initialEdges = [
   { id: '9a', source: 'take_assesment', target: 'write_db', markerEnd: {type: 'arrowclosed'} },
   { id: '9b', source: 'take_assesment', target: 'recieve_result', markerEnd: {type: 'arrowclosed'} },
   
+  { id: '10a', source: 'read_db', target: 'recieve_result', markerEnd: {type: 'arrowclosed'} },
   { id: '10b', source: 'recieve_result', target: 'share_summary', markerEnd: {type: 'arrowclosed'} },
   
   { id: '11', source: 'share_summary', target: 'write_db', markerEnd: {type: 'arrowclosed'} },
