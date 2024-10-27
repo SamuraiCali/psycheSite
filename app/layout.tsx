@@ -39,6 +39,9 @@ export default function RootLayout({
                 <Link href="/moodboard" className="hover:text-gray-300">
                   Moodboard
                 </Link>
+                <Link href="/flowchart" className="hover:text-gray-300">
+                  Flowchart
+                </Link>
               </li>
             </ul>
           </nav>
