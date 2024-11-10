@@ -21,13 +21,12 @@ import {
 
 export default function ResultsPage() {
   const router = useRouter();
-  const query = new URLSearchParams(window.location.search);
 
-  // Get the values from the URL query parameters
-  const score = parseFloat(query.get("score") || "0");
-  const neatness = parseFloat(query.get("neatness") || "0");
-  const passion = parseFloat(query.get("passion") || "0");
-  const attentionToDetail = parseFloat(query.get("attention_to_detail") || "0");
+  // Generate random placeholder values for scores
+  const score = Math.random() * 100;
+  const neatness = Math.random() * 100;
+  const passion = Math.random() * 100;
+  const attentionToDetail = Math.random() * 100;
 
   // Set data for the chart
   const [data, setData] = useState([
@@ -38,7 +37,7 @@ export default function ResultsPage() {
   ]);
 
   useEffect(() => {
-    // You can modify or process the data here if necessary
+    // Modify or process the data here if necessary (e.g., rounding values)
   }, [score, neatness, passion, attentionToDetail]);
 
   return (

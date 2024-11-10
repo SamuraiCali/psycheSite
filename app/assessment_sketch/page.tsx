@@ -18,7 +18,6 @@ const quizQuestions = [
     id: 1,
     question: "Do you prefer to work alone or in a team?",
     options: ["Yes", "No"],
-    correctAnswer: 1,
   },
   {
     id: 2,
@@ -30,41 +29,25 @@ const quizQuestions = [
       "Try to recruit some help",
       "Take longer breaks",
     ],
-    correctAnswer: 2,
   },
-  // Add other questions here as before...
+  // Add other questions here as needed...
 ];
 
 export default function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<number[]>(
-    new Array(quizQuestions.length).fill(-1)
-  );
   const router = useRouter();
-
-  const handleAnswer = (answer: number) => {
-    const newAnswers = [...answers];
-    newAnswers[currentQuestion] = answer;
-    setAnswers(newAnswers);
-  };
 
   const handleNext = () => {
     if (currentQuestion < quizQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      // Calculate dummy scores
-      const correctAnswers = answers.filter(
-        (answer, index) => answer === quizQuestions[index].correctAnswer
-      ).length;
+      // Generate placeholder scores (random values)
+      const score = Math.random() * 100; // Random score for demonstration
+      const neatness = Math.random() * 100; // Random neatness score
+      const passion = Math.random() * 100; // Random passion score
+      const attentionToDetail = Math.random() * 100; // Random attention to detail score
 
-      const score = (correctAnswers / quizQuestions.length) * 100;
-
-      // Generate other scores randomly for placeholders
-      const neatness = Math.random() * 100;
-      const passion = Math.random() * 100;
-      const attentionToDetail = Math.random() * 100;
-
-      // Navigate to results page with these parameters
+      // Navigate to results page with these placeholder scores
       router.push(
         `/results?score=${score}&neatness=${neatness}&passion=${passion}&attention_to_detail=${attentionToDetail}`
       );
@@ -85,8 +68,8 @@ export default function QuizPage() {
           </h2>
           <p className="mb-4 text-gray-700">{question.question}</p>
           <RadioGroup
-            value={answers[currentQuestion].toString()}
-            onValueChange={(value) => handleAnswer(parseInt(value))}
+            value={""} // Placeholder, no need to track the answer
+            onValueChange={() => {}}
           >
             {question.options.map((option, index) => (
               <div key={index} className="flex items-center space-x-2 mb-4">
@@ -94,6 +77,7 @@ export default function QuizPage() {
                   value={index.toString()}
                   id={`option-${index}`}
                   className="text-blue-600"
+                  disabled
                 />
                 <Label htmlFor={`option-${index}`} className="text-gray-700">
                   {option}
@@ -105,7 +89,6 @@ export default function QuizPage() {
         <CardFooter className="p-4 bg-blue-50 rounded-b-lg">
           <Button
             onClick={handleNext}
-            disabled={answers[currentQuestion] === -1}
             className="bg-blue-600 text-white hover:bg-blue-700 disabled:bg-gray-300 transition-colors py-2 px-6 rounded-lg"
           >
             {currentQuestion === quizQuestions.length - 1
