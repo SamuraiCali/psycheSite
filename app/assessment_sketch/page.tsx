@@ -10,35 +10,31 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 const quizQuestions = [
   {
     id: 1,
-    question: "What is the primary purpose of white space in UI design?",
+    question: "Would you care if there is a missing tile on a mural?",
     options: [
-      "To fill empty areas",
-      "To improve readability and focus",
-      "To make the design look minimalist",
-      "To reduce printing costs"
+      "Yes",
+      "No",
     ],
     correctAnswer: 1
   },
   {
     id: 2,
-    question: "Which color is often associated with trust and security in UI design?",
+    question: "Your boss says their job is on the line if a certain project isnt done by the end of the week. What do you do?",
     options: [
-      "Red",
-      "Yellow",
-      "Blue",
-      "Green"
+      "Keep working the same as usual",
+      "Work extra late to get the project done by the deadline",
+      "Try to recruit some help",
+      "Take longer breaks"
     ],
     correctAnswer: 2
   },
   // ... Add 13 more questions here with similar structure
   {
     id: 15,
-    question: "What is the recommended maximum number of primary navigation items?",
+    question: "Would you rather an overwhelming amount of options, or never have choice?",
     options: [
-      "3-5",
-      "5-7",
-      "7-9",
-      "10-12"
+      "Overwhelming amount of options",
+      "No choice"
     ],
     correctAnswer: 1
   }
@@ -64,7 +60,7 @@ export default function QuizPage() {
       const score = (correctAnswers / quizQuestions.length) * 100
       
       // Navigate to results page with dummy scores
-      router.push(`/results_sketch?score=${score}&layout=${Math.random() * 100}&color=${Math.random() * 100}&typography=${Math.random() * 100}`)
+      router.push(`/results_sketch?score=${score}&neatness=${Math.random() * 100}&passion=${Math.random() * 100}&attention_to_detail=${Math.random() * 100}`)
     }
   }
 

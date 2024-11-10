@@ -35,7 +35,7 @@ export default function RootLayout({
                     <Link href="/" className="text-xl font-bold">
                       Psyche
                     </Link>
-                    <p className="text-sm text-gray-500">Unlock your design potential</p>
+                    <p className="text-sm text-gray-500">Realize your potential</p>
                   </div>
                 </div>
               </li>

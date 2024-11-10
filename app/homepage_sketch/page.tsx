@@ -6,7 +6,7 @@ export default function HomePage() {
       <header className="bg-foreground text-background py-6">
         <div className="container mx-auto px-4">
           <h1 className="text-3xl font-bold">Explore Psyche</h1>
-          <p className="mt-2">Assess your UI design skills and level up your career</p>
+          <p className="mt-2">Realize your potential, find where you excel</p>
         </div>
       </header>
 
@@ -40,8 +40,8 @@ export default function HomePage() {
         </section>
 
         <section className="bg-foreground/5 p-8 rounded-lg">
-          <h2 className="text-2xl font-semibold mb-4">Start Your UI Design Journey Today</h2>
-          <p className="mb-4">Sign up for our newsletter to receive the latest assessments and UI design tips.</p>
+          <h2 className="text-2xl font-semibold mb-4">Start Your Journey Today</h2>
+          <p className="mb-4">Sign up for our newsletter to receive the latest assessments and tips on how to become a high demand employee.</p>
           <form className="flex flex-col sm:flex-row gap-4">
             <input type="email" placeholder="Enter your email" className="flex-grow px-4 py-2 rounded-md border border-foreground/20 bg-background" />
             <button type="submit" className="bg-foreground text-background px-6 py-2 rounded-md hover:bg-foreground/80 transition-colors">Subscribe</button>
@@ -61,18 +61,18 @@ export default function HomePage() {
 const featuredAssessments = [
   {
     id: 1,
-    title: "Color Theory Fundamentals",
-    description: "Test your knowledge of color harmonies and their application in UI design.",
+    title: "Personality Test 1",
+    description: "Take a test to find your strongest traits as an individual",
   },
   {
     id: 2,
-    title: "Typography in User Interfaces",
-    description: "Evaluate your understanding of typeface selection and text hierarchy.",
+    title: "Personality Test 3",
+    description: "Take a test to find your strongest traits as an individual",
   },
   {
     id: 3,
-    title: "Layout and Composition",
-    description: "Assess your skills in creating balanced and effective UI layouts.",
+    title: "Personality Test 3",
+    description: "Take a test to find your strongest traits as an individual",
   },
 ]
 
@@ -84,7 +84,7 @@ const features = [
       </svg>
     ),
     title: "Comprehensive Assessments",
-    description: "Our assessments cover all aspects of UI design, from basic principles to advanced techniques.",
+    description: "Our assessments cover several aspects of the human psyche, from little decisions, to personalities.",
   },
   {
     icon: ({ className }: { className?: string }) => (
@@ -93,7 +93,7 @@ const features = [
       </svg>
     ),
     title: "Real-world Scenarios",
-    description: "Practice your skills with assessments based on real-world UI design challenges.",
+    description: "Find who you are when the cards are down. What do you do when people depend on you?",
   },
   {
     icon: ({ className }: { className?: string }) => (
@@ -102,6 +102,6 @@ const features = [
       </svg>
     ),
     title: "Track Your Progress",
-    description: "Monitor your improvement over time and earn certificates as you master new skills.",
+    description: "Monitor your improvement over time and become good fit wherever you wish to work!",
   },
 ]

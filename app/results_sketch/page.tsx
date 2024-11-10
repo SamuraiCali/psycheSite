@@ -11,15 +11,15 @@ import { Share2 } from "lucide-react"
 function ResultsContent() {
   const searchParams = useSearchParams()
   const score = parseFloat(searchParams.get('score') || '0')
-  const layoutScore = parseFloat(searchParams.get('layout') || '0')
-  const colorScore = parseFloat(searchParams.get('color') || '0')
-  const typographyScore = parseFloat(searchParams.get('typography') || '0')
+  const layoutScore = parseFloat(searchParams.get('neatness') || '0')
+  const colorScore = parseFloat(searchParams.get('passion') || '0')
+  const typographyScore = parseFloat(searchParams.get('attention_to_detail') || '0')
 
   const data = [
     { category: 'Overall', score },
-    { category: 'Layout', score: layoutScore },
-    { category: 'Color Theory', score: colorScore },
-    { category: 'Typography', score: typographyScore },
+    { category: 'Neatness', score: layoutScore },
+    { category: 'Passion', score: colorScore },
+    { category: 'Attention To Detail', score: typographyScore },
   ]
 
   const [foregroundColor, setForegroundColor] = useState('#000000') // Default to black
