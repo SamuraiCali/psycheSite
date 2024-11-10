@@ -1,50 +1,72 @@
-'use client'
+"use client";
 
-import { Suspense, useEffect, useState } from 'react'
-import { useSearchParams } from 'next/navigation'
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
-import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { Button } from "@/components/ui/button"
-import { Share2 } from "lucide-react"
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts";
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
+import { Button } from "@/components/ui/button";
+import { Share2 } from "lucide-react";
 
 function ResultsContent() {
-  const searchParams = useSearchParams()
-  const score = parseFloat(searchParams.get('score') || '0')
-  const layoutScore = parseFloat(searchParams.get('neatness') || '0')
-  const colorScore = parseFloat(searchParams.get('passion') || '0')
-  const typographyScore = parseFloat(searchParams.get('attention_to_detail') || '0')
+  const searchParams = useSearchParams();
+  const workplaceCompatibility = parseFloat(
+    searchParams.get("workplaceCompatibility") || "0"
+  );
+  const teamCollaboration = parseFloat(
+    searchParams.get("teamCollaboration") || "0"
+  );
+  const leadershipPotential = parseFloat(
+    searchParams.get("leadershipPotential") || "0"
+  );
+  const stressManagement = parseFloat(
+    searchParams.get("stressManagement") || "0"
+  );
 
   const data = [
-    { category: 'Overall', score },
-    { category: 'Neatness', score: layoutScore },
-    { category: 'Passion', score: colorScore },
-    { category: 'Attention To Detail', score: typographyScore },
-  ]
+    { category: "Workplace Compatibility", score: workplaceCompatibility },
+    { category: "Team Collaboration", score: teamCollaboration },
+    { category: "Leadership Potential", score: leadershipPotential },
+    { category: "Stress Management", score: stressManagement },
+  ];
 
-  const [foregroundColor, setForegroundColor] = useState('#000000') // Default to black
+  const [foregroundColor, setForegroundColor] = useState("#000000"); // Default to black
 
   useEffect(() => {
-    const computedStyle = getComputedStyle(document.documentElement)
-    const color = computedStyle.getPropertyValue('--foreground').trim()
-    setForegroundColor(color || '#000000')
-  }, [])
+    const computedStyle = getComputedStyle(document.documentElement);
+    const color = computedStyle.getPropertyValue("--foreground").trim();
+    setForegroundColor(color || "#000000");
+  }, []);
 
   const handleShareResults = () => {
-    console.log('Sharing results:', { score, layoutScore, colorScore, typographyScore })
-  }
+    console.log("Sharing results:", {
+      workplaceCompatibility,
+      teamCollaboration,
+      leadershipPotential,
+      stressManagement,
+    });
+  };
 
   return (
-    <Card className="w-full max-w-3xl">
-      <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle className="text-2xl font-bold text-foreground">Your UI Design Quiz Results</CardTitle>
-        <Button onClick={handleShareResults} className="flex items-center gap-2">
+    <Card className="w-full max-w-3xl bg-white shadow-lg rounded-lg">
+      <CardHeader className="flex flex-row items-center justify-between bg-blue-600 text-white p-4 rounded-t-lg">
+        <CardTitle className="text-2xl font-bold">
+          Your Psychological Test Results
+        </CardTitle>
+        <Button
+          onClick={handleShareResults}
+          className="flex items-center gap-2 bg-blue-700 hover:bg-blue-800 text-white"
+        >
           <Share2 className="w-4 h-4" />
           Share Results
         </Button>
       </CardHeader>
-      <CardContent>
-        <p className="text-xl mb-6 text-foreground">Your overall score: {score.toFixed(2)}%</p>
+      <CardContent className="p-6">
+        <p className="text-xl mb-6 text-gray-700">Your overall test scores:</p>
         <ChartContainer
           config={{
             score: {
@@ -56,8 +78,8 @@ function ResultsContent() {
         >
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={data}>
-              <XAxis 
-                dataKey="category" 
+              <XAxis
+                dataKey="category"
                 stroke={foregroundColor}
                 fontSize={12}
                 tickLine={false}
@@ -76,8 +98,8 @@ function ResultsContent() {
                 content={<ChartTooltipContent />}
                 cursor={{ fill: `${foregroundColor}1A` }}
               />
-              <Bar 
-                dataKey="score" 
+              <Bar
+                dataKey="score"
                 fill={foregroundColor}
                 radius={[4, 4, 0, 0]}
               />
@@ -85,24 +107,29 @@ function ResultsContent() {
           </ResponsiveContainer>
         </ChartContainer>
         <div className="mt-6">
-          <h3 className="text-lg font-semibold mb-2 text-foreground">Score Breakdown:</h3>
-          <ul className="list-disc pl-5 text-foreground">
-            <li>Layout: {layoutScore.toFixed(2)}%</li>
-            <li>Color Theory: {colorScore.toFixed(2)}%</li>
-            <li>Typography: {typographyScore.toFixed(2)}%</li>
+          <h3 className="text-lg font-semibold mb-2 text-gray-800">
+            Score Breakdown:
+          </h3>
+          <ul className="list-disc pl-5 text-gray-700">
+            <li>
+              Workplace Compatibility: {workplaceCompatibility.toFixed(2)}%
+            </li>
+            <li>Team Collaboration: {teamCollaboration.toFixed(2)}%</li>
+            <li>Leadership Potential: {leadershipPotential.toFixed(2)}%</li>
+            <li>Stress Management: {stressManagement.toFixed(2)}%</li>
           </ul>
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
 
 export default function ResultsPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gray-100 text-foreground flex items-center justify-center p-4">
       <Suspense fallback={<div>Loading...</div>}>
         <ResultsContent />
       </Suspense>
     </div>
-  )
+  );
 }
