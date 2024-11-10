@@ -23,7 +23,7 @@ const quizQuestions = [
   {
     id: 2,
     question:
-      "Your boss says their job is on the line if a certain project isnt done by the end of the week. What do you do?",
+      "Your boss says their job is on the line if a certain project isn't done by the end of the week. What do you do?",
     options: [
       "Keep working the same as usual",
       "Work extra late to get the project done by the deadline",
@@ -32,14 +32,7 @@ const quizQuestions = [
     ],
     correctAnswer: 2,
   },
-  // ... Add 13 more questions here with similar structure
-  {
-    id: 15,
-    question:
-      "Would you rather an overwhelming amount of options, or never have choice?",
-    options: ["Overwhelming amount of options", "No choice"],
-    correctAnswer: 1,
-  },
+  // Add other questions here as before...
 ];
 
 export default function QuizPage() {
@@ -63,15 +56,17 @@ export default function QuizPage() {
       const correctAnswers = answers.filter(
         (answer, index) => answer === quizQuestions[index].correctAnswer
       ).length;
+
       const score = (correctAnswers / quizQuestions.length) * 100;
 
-      // Navigate to results page with dummy scores
+      // Generate other scores randomly for placeholders
+      const neatness = Math.random() * 100;
+      const passion = Math.random() * 100;
+      const attentionToDetail = Math.random() * 100;
+
+      // Navigate to results page with these parameters
       router.push(
-        `/results_sketch?score=${score}&neatness=${
-          Math.random() * 100
-        }&passion=${Math.random() * 100}&attention_to_detail=${
-          Math.random() * 100
-        }`
+        `/results?score=${score}&neatness=${neatness}&passion=${passion}&attention_to_detail=${attentionToDetail}`
       );
     }
   };
