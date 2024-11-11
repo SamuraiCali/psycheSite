@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image'
 import Link from "next/link";
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -21,10 +22,22 @@ export default function RootLayout({
         <header className="bg-gray-800 text-white">
           <nav className="container mx-auto px-4 py-4">
             <ul className="flex flex-wrap justify-between items-center">
-              <li>
-                <Link href="/" className="text-xl font-bold">
-                  Psyche
-                </Link>
+            <li>
+                <div className="flex items-center mb-4">
+                  <Image
+                    src={"/images/PsycheLogoClear.png"}
+                    width={64}
+                    height={64}
+                    alt={`logo`}
+                    className="rounded-lg"
+                  />
+                  <div className="ml-2">
+                    <Link href="/" className="text-xl font-bold">
+                      Psyche
+                    </Link>
+                    <p className="text-sm text-gray-500">Realize your potential</p>
+                  </div>
+                </div>
               </li>
               <li className="flex space-x-4">
                 <Link href="/persona" className="hover:text-gray-300">

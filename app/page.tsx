@@ -54,6 +54,15 @@ export default function Home() {
             See our flowchart that illustrates the user journey.
           </p>
         </Link>
+        <Link
+          href="/homepage_sketch"
+          className="bg-purple-100 p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+        >
+          <h2 className="text-2xl font-semibold mb-2 text-black">Website Sketch</h2>
+          <p className="text-black">
+            View an interactive sketch of how the final site might look and feel
+          </p>
+        </Link>
       </div>
     </div>
   );
