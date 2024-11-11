@@ -1,5 +1,5 @@
 import React from "react";
-import Image from 'next/image'
+import Image from "next/image";
 import Link from "next/link";
 import "./globals.css";
 import { Inter } from "next/font/google";
@@ -22,7 +22,7 @@ export default function RootLayout({
         <header className="bg-gray-800 text-white">
           <nav className="container mx-auto px-4 py-4">
             <ul className="flex flex-wrap justify-between items-center">
-            <li>
+              <li>
                 <div className="flex items-center mb-4">
                   <Image
                     src={"/images/PsycheLogoClear.png"}
@@ -35,7 +35,9 @@ export default function RootLayout({
                     <Link href="/" className="text-xl font-bold">
                       Psyche
                     </Link>
-                    <p className="text-sm text-gray-500">Realize your potential</p>
+                    <p className="text-sm text-gray-500">
+                      Where Personality Meets Performance
+                    </p>
                   </div>
                 </div>
               </li>
