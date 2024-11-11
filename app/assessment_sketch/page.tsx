@@ -18,6 +18,7 @@ const quizQuestions = [
     id: 1,
     question: "Do you prefer to work alone or in a team?",
     options: ["Yes", "No"],
+    correctAnswer: 1,
   },
   {
     id: 2,
@@ -29,25 +30,30 @@ const quizQuestions = [
       "Try to recruit some help",
       "Take longer breaks",
     ],
+    correctAnswer: 2,
   },
-  // Add other questions here as needed...
+  // Add other questions here as before...
 ];
 
 export default function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const router = useRouter();
 
+  const handleAnswer = (answer: number) => {
+    // Answer is selected, but not saved
+  };
+
   const handleNext = () => {
     if (currentQuestion < quizQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      // Generate placeholder scores (random values)
-      const score = Math.random() * 100; // Random score for demonstration
-      const neatness = Math.random() * 100; // Random neatness score
-      const passion = Math.random() * 100; // Random passion score
-      const attentionToDetail = Math.random() * 100; // Random attention to detail score
+      // Generate random placeholder scores for test
+      const score = Math.random() * 100;
+      const neatness = Math.random() * 100;
+      const passion = Math.random() * 100;
+      const attentionToDetail = Math.random() * 100;
 
-      // Navigate to results page with these placeholder scores
+      // Navigate to results page with random values
       router.push(
         `/results?score=${score}&neatness=${neatness}&passion=${passion}&attention_to_detail=${attentionToDetail}`
       );
@@ -67,17 +73,13 @@ export default function QuizPage() {
             Question {currentQuestion + 1} of {quizQuestions.length}
           </h2>
           <p className="mb-4 text-gray-700">{question.question}</p>
-          <RadioGroup
-            value={""} // Placeholder, no need to track the answer
-            onValueChange={() => {}}
-          >
+          <RadioGroup onValueChange={(value) => handleAnswer(parseInt(value))}>
             {question.options.map((option, index) => (
               <div key={index} className="flex items-center space-x-2 mb-4">
                 <RadioGroupItem
                   value={index.toString()}
                   id={`option-${index}`}
                   className="text-blue-600"
-                  disabled
                 />
                 <Label htmlFor={`option-${index}`} className="text-gray-700">
                   {option}
