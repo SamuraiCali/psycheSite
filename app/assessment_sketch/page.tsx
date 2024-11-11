@@ -37,26 +37,23 @@ const quizQuestions = [
 
 export default function QuizPage() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [answers, setAnswers] = useState<number[]>(
+    new Array(quizQuestions.length).fill(-1)
+  );
   const router = useRouter();
 
   const handleAnswer = (answer: number) => {
-    // Answer is selected, but not saved
+    const newAnswers = [...answers];
+    newAnswers[currentQuestion] = answer;
+    setAnswers(newAnswers);
   };
 
   const handleNext = () => {
     if (currentQuestion < quizQuestions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
-      // Generate random placeholder scores for test
-      const score = Math.random() * 100;
-      const neatness = Math.random() * 100;
-      const passion = Math.random() * 100;
-      const attentionToDetail = Math.random() * 100;
-
-      // Navigate to results page with random values
-      router.push(
-        `/results?score=${score}&neatness=${neatness}&passion=${passion}&attention_to_detail=${attentionToDetail}`
-      );
+      // Redirect to the results_sketch page without any query params
+      router.push("/results_sketch");
     }
   };
 
@@ -73,7 +70,10 @@ export default function QuizPage() {
             Question {currentQuestion + 1} of {quizQuestions.length}
           </h2>
           <p className="mb-4 text-gray-700">{question.question}</p>
-          <RadioGroup onValueChange={(value) => handleAnswer(parseInt(value))}>
+          <RadioGroup
+            value={answers[currentQuestion].toString()}
+            onValueChange={(value) => handleAnswer(parseInt(value))}
+          >
             {question.options.map((option, index) => (
               <div key={index} className="flex items-center space-x-2 mb-4">
                 <RadioGroupItem
@@ -91,6 +91,7 @@ export default function QuizPage() {
         <CardFooter className="p-4 bg-blue-50 rounded-b-lg">
           <Button
             onClick={handleNext}
+            disabled={answers[currentQuestion] === -1}
             className="bg-blue-600 text-white hover:bg-blue-700 disabled:bg-gray-300 transition-colors py-2 px-6 rounded-lg"
           >
             {currentQuestion === quizQuestions.length - 1

@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import {
   Card,
   CardContent,
@@ -10,35 +8,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import {
-  Bar,
-  BarChart,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-  Tooltip,
-} from "recharts";
+import { useRouter } from "next/navigation";
 
 export default function ResultsPage() {
   const router = useRouter();
-
-  // Generate random placeholder values for scores
-  const score = Math.random() * 100;
-  const neatness = Math.random() * 100;
-  const passion = Math.random() * 100;
-  const attentionToDetail = Math.random() * 100;
-
-  // Set data for the chart
-  const [data, setData] = useState([
-    { category: "Score", value: score },
-    { category: "Neatness", value: neatness },
-    { category: "Passion", value: passion },
-    { category: "Attention to Detail", value: attentionToDetail },
-  ]);
-
-  useEffect(() => {
-    // Modify or process the data here if necessary (e.g., rounding values)
-  }, [score, neatness, passion, attentionToDetail]);
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
@@ -48,27 +21,12 @@ export default function ResultsPage() {
         </CardHeader>
         <CardContent className="p-6">
           <h2 className="text-xl font-semibold mb-4 text-blue-800">
-            Your Results Visualization
+            Thank you for completing the quiz!
           </h2>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={data}>
-              <XAxis dataKey="category" stroke="#555" />
-              <YAxis />
-              <Tooltip />
-              <Bar dataKey="value" fill="#4CAF50" radius={[4, 4, 0, 0]} />
-            </BarChart>
-          </ResponsiveContainer>
-          <div className="mt-6">
-            <h3 className="text-lg font-semibold mb-2 text-gray-800">
-              Detailed Results:
-            </h3>
-            <ul className="list-disc pl-5 text-gray-700">
-              <li>Score: {score.toFixed(2)}%</li>
-              <li>Neatness: {neatness.toFixed(2)}%</li>
-              <li>Passion: {passion.toFixed(2)}%</li>
-              <li>Attention to Detail: {attentionToDetail.toFixed(2)}%</li>
-            </ul>
-          </div>
+          <p className="mb-4 text-gray-700">Here are your results:</p>
+          <p className="text-gray-700">
+            Your quiz results will be available soon!
+          </p>
         </CardContent>
         <CardFooter className="p-4 bg-blue-50 rounded-b-lg">
           <Button
