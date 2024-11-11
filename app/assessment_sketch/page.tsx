@@ -17,7 +17,7 @@ const quizQuestions = [
   {
     id: 1,
     question: "Do you prefer to work alone or in a team?",
-    options: ["Yes", "No"],
+    options: ["Alone", "Team"],
     correctAnswer: 1,
   },
   {
