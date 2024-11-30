@@ -49,11 +49,11 @@ const PreviousResultsPage = () => {
                   className="overflow-hidden bg-white shadow-lg transition-all duration-300 hover:shadow-xl"
                 >
                   <CardHeader className="bg-primary p-4">
-                    <CardTitle className="text-xl font-semibold text-primary-foreground">
+                    <CardTitle className="text-xl font-semibold text-black">
                       {result.testName}
                     </CardTitle>
                   </CardHeader>
-                  <CardContent className="p-6">
+                  <CardContent className="p-6 text-black">
                     <div className="flex flex-col gap-4">
                       <Badge
                         variant="secondary"
@@ -61,7 +61,7 @@ const PreviousResultsPage = () => {
                       >
                         {result.result}
                       </Badge>
-                      <div className="flex items-center text-sm text-muted-foreground">
+                      <div className="flex items-center text-sm text-black">
                         <CalendarIcon className="mr-2 h-4 w-4" />
                         <time dateTime={result.submissionTime}>
                           {new Date(result.submissionTime).toLocaleString()}
