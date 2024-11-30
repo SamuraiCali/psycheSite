@@ -46,11 +46,11 @@ const Assessment: React.FC<AssessmentProps> = ({
   };
 
   return (
-    <div className="min-h-screen p-8 bg-gray-100">
-      <h1 className="text-3xl font-bold mb-4">{title}</h1>
+    <div className="min-h-screen p-8 bg-white-100">
+      <h1 className="text-3xl font-bold mb-4 text-black">{title}</h1>
       {questions.map((q) => (
         <div key={q.id} className="mb-6">
-          <p className="text-lg font-semibold mb-2">{q.question}</p>
+          <p className="text-lg font-semibold mb-2 text-black">{q.question}</p>
           {q.options.map((option) => (
             <label key={option} className="block mb-2">
               <input
