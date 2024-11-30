@@ -30,11 +30,6 @@ const Assessment: React.FC<AssessmentProps> = ({
   };
 
   const handleSubmit = () => {
-    if (!user) {
-      router.push("/login");
-      return;
-    }
-
     const score = Object.values(answers).filter((a) => a).length * 10; // Example scoring
     addTestResult({
       testId,
@@ -42,12 +37,12 @@ const Assessment: React.FC<AssessmentProps> = ({
       date: new Date().toISOString(),
     });
 
-    router.push("/results");
+    router.push("/prototype/results");
   };
 
   return (
     <div className="min-h-screen p-8 bg-white-100">
-      <h1 className="text-3xl font-bold mb-4 text-black">{title}</h1>
+      <h1 className="text-3xl font-bold mb-4">{title}</h1>
       {questions.map((q) => (
         <div key={q.id} className="mb-6">
           <p className="text-lg font-semibold mb-2 text-black">{q.question}</p>
