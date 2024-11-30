@@ -1,14 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useUser } from "@/lib/UserContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Header } from "@/components/ui/Header";
-import UserManager from "@/lib/UserManager";
 
 export default function UserProfilePage() {
-  const [user, setUser] = useState(UserManager.getInstance().getCurrentUser());
+  const { user, logout } = useUser();
   const router = useRouter();
 
   useEffect(() => {
@@ -18,12 +18,12 @@ export default function UserProfilePage() {
   }, [user, router]);
 
   const handleLogout = () => {
-    UserManager.getInstance().logout();
+    logout();
     router.push("/login");
   };
 
   if (!user) {
-    return null;
+    return null; // Avoid rendering until the redirect happens
   }
 
   return (

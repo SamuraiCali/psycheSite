@@ -24,7 +24,9 @@ export default function HomePage() {
                 <CardContent>
                   <p className="mb-4 text-blue-600">{assessment.description}</p>
                   <Button asChild>
-                    <Link href="@/app/assessment_sketch">Take Assessment</Link>
+                    <Link href={`/app/${assessment.slug}`}>
+                      Take Assessment
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -90,16 +92,19 @@ export default function HomePage() {
 const featuredAssessments = [
   {
     id: 1,
+    slug: "workplace-personality",
     title: "Workplace Personality Test",
     description: "Discover your unique personality traits and strengths",
   },
   {
     id: 2,
-    title: "Neurodivergancy Test",
+    slug: "neurodivergence",
+    title: "Neurodivergence Test",
     description: "Understand how your brain works and how to leverage it",
   },
   {
     id: 3,
+    slug: "leadership-style",
     title: "Leadership Style Assessment",
     description: "Uncover your leadership style and potential",
   },
