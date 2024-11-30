@@ -1,5 +1,4 @@
-"use client";
-import React from "react";
+import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 
@@ -7,6 +6,11 @@ const ResultsPage: React.FC = () => {
   const searchParams = useSearchParams();
   const test = searchParams.get("test");
   const score = searchParams.get("score");
+
+  // Check if data is available
+  if (!test || !score) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
@@ -20,4 +24,13 @@ const ResultsPage: React.FC = () => {
   );
 };
 
-export default ResultsPage;
+// Wrap in Suspense boundary at higher level in the component tree (App or Parent component)
+const SuspenseWrapper: React.FC = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ResultsPage />
+    </Suspense>
+  );
+};
+
+export default SuspenseWrapper;
