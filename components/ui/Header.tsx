@@ -17,10 +17,7 @@ export function Header() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="@/app/prototype/results"
-                  className="hover:underline"
-                >
+                <Link href="/prototype/scores" className="hover:underline">
                   Your Results
                 </Link>
               </li>
