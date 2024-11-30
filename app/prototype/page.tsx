@@ -17,22 +17,18 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredAssessments.map((assessment) => (
               <Card key={assessment.id}>
-                <CardHeader>
-                  <CardTitle className="text-blue-600">
-                    {assessment.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="mb-4 text-blue-600">{assessment.description}</p>
-                  <Button asChild>
-                    <Link
-                      href={`/prototype/assessments/${assessment.slug}`}
-                      className="text-black"
-                    >
-                      Take Assessment
-                    </Link>
-                  </Button>
-                </CardContent>
+                <Link href={`/prototype/assessments/${assessment.slug}`}>
+                  <CardHeader>
+                    <CardTitle className="text-blue-600">
+                      {assessment.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="mb-4 text-blue-600">
+                      {assessment.description}
+                    </p>
+                  </CardContent>
+                </Link>
               </Card>
             ))}
           </div>

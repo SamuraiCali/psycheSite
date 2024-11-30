@@ -107,10 +107,6 @@ const ResultsPageContent: React.FC = () => {
             Test: {test.charAt(0).toUpperCase() + test.slice(1)}
           </p>
           <div className="space-y-2">
-            <p className="text-lg">Score: {score}%</p>
-            <Progress value={score} className="w-full" />
-          </div>
-          <div className="space-y-2">
             <p className="text-lg font-semibold">Your Result: {result}</p>
             <p className="text-gray-600">
               {getResultDescription(test, result)}
