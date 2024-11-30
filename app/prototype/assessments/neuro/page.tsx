@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Assessment from "@/components/ui/assessment";
 import { assessments } from "@/lib/assessmentData";
