@@ -9,7 +9,7 @@ type User = {
 
 type TestResult = {
   testId: string;
-  score: number;
+  result: string;
   date: string;
 };
 

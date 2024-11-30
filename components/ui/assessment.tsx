@@ -56,27 +56,72 @@ const Assessment: React.FC<AssessmentProps> = ({
     }
   };
 
-  const calculateScore = () => {
-    const totalQuestions = questions.length;
-    const answeredQuestions = Object.keys(answers).length;
+  const calculateResult = () => {
+    // This is a simplified calculation. You may want to implement a more sophisticated algorithm.
+    const answerValues = Object.values(answers);
+    const mostFrequent = answerValues
+      .sort(
+        (a, b) =>
+          answerValues.filter((v) => v === a).length -
+          answerValues.filter((v) => v === b).length
+      )
+      .pop();
 
-    if (answeredQuestions === 0) return 0;
-
-    const scorePerQuestion = 100 / totalQuestions;
-    const score = answeredQuestions * scorePerQuestion;
-
-    return Math.round(score);
+    switch (testId) {
+      case "leadership":
+        return mostFrequent === questions[0].options[0]
+          ? "Autocratic"
+          : mostFrequent === questions[0].options[1]
+          ? "Democratic"
+          : mostFrequent === questions[0].options[2]
+          ? "Laissez-Faire"
+          : "Transformational";
+      case "neurodivergence":
+        return mostFrequent === questions[0].options[0]
+          ? "ADHD Traits"
+          : mostFrequent === questions[0].options[1]
+          ? "Autism Spectrum Traits"
+          : mostFrequent === questions[0].options[2]
+          ? "Dyslexia Traits"
+          : "Neurotypical";
+      case "personality":
+        return mostFrequent === questions[0].options[0]
+          ? "Analyst"
+          : mostFrequent === questions[0].options[1]
+          ? "Diplomat"
+          : mostFrequent === questions[0].options[2]
+          ? "Sentinel"
+          : "Explorer";
+      default:
+        return "Inconclusive";
+    }
   };
 
   const handleSubmit = () => {
-    const score = calculateScore();
+    const result = calculateResult();
+    const testResult = {
+      id: Date.now().toString(),
+      testName: title,
+      result: result,
+      submissionTime: new Date().toISOString(),
+    };
+
+    // Store the result in local storage
+    const storedResults = JSON.parse(
+      localStorage.getItem("testResults") || "[]"
+    );
+    localStorage.setItem(
+      "testResults",
+      JSON.stringify([...storedResults, testResult])
+    );
+
     addTestResult({
       testId,
-      score,
+      result,
       date: new Date().toISOString(),
     });
 
-    router.push(`/prototype/results?test=${testId}&score=${score}`);
+    router.push(`/prototype/results?test=${testId}&result=${result}`);
   };
 
   const progress = ((currentQuestion + 1) / questions.length) * 100;
