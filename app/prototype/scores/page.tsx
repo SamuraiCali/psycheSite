@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Header } from "@/components/ui/Header";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { CalendarIcon } from "@radix-ui/react-icons";
 
 type TestResult = {
   id: string;
@@ -23,38 +25,56 @@ const PreviousResultsPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8">
-      <Header></Header>
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">
-        Previous Test Results
-      </h1>
-      {results.length === 0 ? (
-        <p className="text-gray-600">
-          No test results available. Take a test to see your results here!
-        </p>
-      ) : (
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {results.map((result) => (
-            <Card key={result.id} className="overflow-hidden">
-              <CardHeader className="bg-blue-600 text-white">
-                <CardTitle className="text-lg text-black">
-                  {result.testName}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="pt-6">
-                <div className="flex justify-between items-center mb-4">
-                  <Badge variant="secondary" className="text-lg px-3 py-1">
-                    {result.result}
-                  </Badge>
-                  <span className="text-sm text-gray-500">
-                    {new Date(result.submissionTime).toLocaleString()}
-                  </span>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      )}
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
+      <Header />
+      <main className="container mx-auto px-4 py-8">
+        <h1 className="text-4xl font-bold text-gray-900 mb-8 text-center">
+          Your Test Results
+        </h1>
+        {results.length === 0 ? (
+          <Card className="bg-white shadow-lg">
+            <CardContent className="p-6">
+              <p className="text-gray-600 text-center text-lg">
+                No test results available yet. Take a test to see your results
+                here!
+              </p>
+            </CardContent>
+          </Card>
+        ) : (
+          <ScrollArea className="h-[calc(100vh-200px)]">
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {results.map((result) => (
+                <Card
+                  key={result.id}
+                  className="overflow-hidden bg-white shadow-lg transition-all duration-300 hover:shadow-xl"
+                >
+                  <CardHeader className="bg-primary p-4">
+                    <CardTitle className="text-xl font-semibold text-primary-foreground">
+                      {result.testName}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="p-6">
+                    <div className="flex flex-col gap-4">
+                      <Badge
+                        variant="secondary"
+                        className="text-lg px-3 py-1 self-start"
+                      >
+                        {result.result}
+                      </Badge>
+                      <div className="flex items-center text-sm text-muted-foreground">
+                        <CalendarIcon className="mr-2 h-4 w-4" />
+                        <time dateTime={result.submissionTime}>
+                          {new Date(result.submissionTime).toLocaleString()}
+                        </time>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </ScrollArea>
+        )}
+      </main>
     </div>
   );
 };

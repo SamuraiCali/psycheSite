@@ -118,7 +118,7 @@ const ResultsPageContent: React.FC = () => {
             <Link href="/">Back to Tests</Link>
           </Button>
           <Button className="bg-blue-600 hover:bg-blue-700">
-            <Link href="/prototype">Share Results</Link>
+            <Link href="/prototype/scores">Share Results</Link>
           </Button>
         </CardFooter>
       </Card>
