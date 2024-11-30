@@ -55,6 +55,8 @@ const ResultsPageContent: React.FC = () => {
   const test = searchParams.get("test") as keyof TestResult;
   const score = parseInt(searchParams.get("score") || "0", 10);
 
+  const [isExpanded, setIsExpanded] = useState(false); // useState should be called unconditionally
+
   if (!test || isNaN(score)) {
     return (
       <Card className="w-full max-w-md mx-auto mt-8">
@@ -93,8 +95,6 @@ const ResultsPageContent: React.FC = () => {
         return "No description available.";
     }
   };
-
-  const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpanded = () => {
     setIsExpanded((prev) => !prev);
