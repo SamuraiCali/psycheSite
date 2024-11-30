@@ -34,7 +34,7 @@ const PreviousResultsPage = () => {
         {results.length === 0 ? (
           <Card className="bg-white shadow-lg">
             <CardContent className="p-6">
-              <p className="text-gray-600 text-center text-lg">
+              <p className="text-gray-900 text-center text-lg">
                 No test results available yet. Take a test to see your results
                 here!
               </p>
