@@ -17,18 +17,11 @@ export function Header() {
                 </Link>
               </li>
               <li>
-                <Link href="/prototype/login" className="hover:underline">
-                  Login
-                </Link>
-              </li>
-              <li>
-                <Link href="/prototype/user" className="hover:underline">
-                  User Profile
-                </Link>
-              </li>
-              <li>
-                <Link href="/prototype/scores" className="hover:underline">
-                  Your Scores
+                <Link
+                  href="@/app/prototype/results"
+                  className="hover:underline"
+                >
+                  Your Results
                 </Link>
               </li>
             </ul>
