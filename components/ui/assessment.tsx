@@ -121,7 +121,7 @@ const Assessment: React.FC<AssessmentProps> = ({
       date: new Date().toISOString(),
     });
 
-    router.push(`/prototype/results?test=${testId}&result=${result}`);
+    router.push(`/results?test=${testId}&result=${result}`);
   };
 
   const progress = ((currentQuestion + 1) / questions.length) * 100;
