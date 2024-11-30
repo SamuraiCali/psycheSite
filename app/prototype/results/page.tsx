@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import {
@@ -50,7 +50,7 @@ const testResults: TestResult = {
   ],
 };
 
-const ResultsPage: React.FC = () => {
+const ResultsPageContent: React.FC = () => {
   const searchParams = useSearchParams();
   const test = searchParams.get("test") as keyof TestResult;
   const score = parseInt(searchParams.get("score") || "0", 10);
@@ -127,6 +127,14 @@ const ResultsPage: React.FC = () => {
         </CardFooter>
       </Card>
     </div>
+  );
+};
+
+const ResultsPage: React.FC = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ResultsPageContent />
+    </Suspense>
   );
 };
 
