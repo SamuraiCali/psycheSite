@@ -12,12 +12,12 @@ export function Header() {
           <nav>
             <ul className="flex space-x-4">
               <li>
-                <Link href="/prototype" className="hover:underline">
+                <Link href="/" className="hover:underline">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/prototype/scores" className="hover:underline">
+                <Link href="/scores" className="hover:underline">
                   Your Results
                 </Link>
               </li>
