@@ -56,15 +56,27 @@ const Assessment: React.FC<AssessmentProps> = ({
     }
   };
 
+  const calculateScore = () => {
+    const totalQuestions = questions.length;
+    const answeredQuestions = Object.keys(answers).length;
+
+    if (answeredQuestions === 0) return 0;
+
+    const scorePerQuestion = 100 / totalQuestions;
+    const score = answeredQuestions * scorePerQuestion;
+
+    return Math.round(score);
+  };
+
   const handleSubmit = () => {
-    const score = Object.values(answers).filter((a) => a).length * 10; // Example scoring
+    const score = calculateScore();
     addTestResult({
       testId,
       score,
       date: new Date().toISOString(),
     });
 
-    router.push("/prototype/results");
+    router.push(`/prototype/results?test=${testId}&score=${score}`);
   };
 
   const progress = ((currentQuestion + 1) / questions.length) * 100;
@@ -86,11 +98,19 @@ const Assessment: React.FC<AssessmentProps> = ({
             <RadioGroup
               value={answers[questions[currentQuestion].id] || ""}
               onValueChange={handleChange}
+              className="space-y-3"
             >
-              {questions[currentQuestion].options.map((option) => (
-                <div key={option} className="flex items-center space-x-2 mb-2">
-                  <RadioGroupItem value={option} id={option} />
-                  <Label htmlFor={option} className="text-gray-700">
+              {questions[currentQuestion].options.map((option, index) => (
+                <div key={index} className="flex items-center space-x-2">
+                  <RadioGroupItem
+                    value={option}
+                    id={`option-${index}`}
+                    className="border-2 border-gray-300 text-blue-600"
+                  />
+                  <Label
+                    htmlFor={`option-${index}`}
+                    className="text-gray-700 text-lg cursor-pointer"
+                  >
                     {option}
                   </Label>
                 </div>
@@ -103,20 +123,23 @@ const Assessment: React.FC<AssessmentProps> = ({
             onClick={handlePrevious}
             disabled={currentQuestion === 0}
             variant="outline"
+            className="text-blue-600 border-blue-600 hover:bg-blue-50"
           >
             Previous
           </Button>
           {currentQuestion < questions.length - 1 ? (
             <Button
               onClick={handleNext}
-              className="bg-blue-600 hover:bg-blue-700"
+              className="bg-blue-600 hover:bg-blue-700 text-white"
+              disabled={!answers[questions[currentQuestion].id]}
             >
               Next
             </Button>
           ) : (
             <Button
               onClick={handleSubmit}
-              className="bg-blue-600 hover:bg-blue-700"
+              className="bg-blue-600 hover:bg-blue-700 text-white"
+              disabled={Object.keys(answers).length !== questions.length}
             >
               Submit
             </Button>
