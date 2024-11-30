@@ -25,7 +25,10 @@ export default function HomePage() {
                 <CardContent>
                   <p className="mb-4 text-blue-600">{assessment.description}</p>
                   <Button asChild>
-                    <Link href={`/prototype/assessments/${assessment.slug}`}>
+                    <Link
+                      href={`/prototype/assessments/${assessment.slug}`}
+                      className="text-black"
+                    >
                       Take Assessment
                     </Link>
                   </Button>

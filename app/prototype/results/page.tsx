@@ -102,7 +102,7 @@ const ResultsPageContent: React.FC = () => {
             Test Results
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4">
+        <CardContent className="space-y-4 text-black">
           <p className="text-xl font-semibold">
             Test: {test.charAt(0).toUpperCase() + test.slice(1)}
           </p>
@@ -122,7 +122,7 @@ const ResultsPageContent: React.FC = () => {
             <Link href="/">Back to Tests</Link>
           </Button>
           <Button className="bg-blue-600 hover:bg-blue-700">
-            Share Results
+            <Link href="/prototype">Share Results</Link>
           </Button>
         </CardFooter>
       </Card>
