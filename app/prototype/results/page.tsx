@@ -1,6 +1,6 @@
 "use client";
 
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import {
@@ -82,16 +82,22 @@ const ResultsPageContent: React.FC = () => {
   ): string => {
     switch (test) {
       case "leadership":
-        return `Your leadership style tends towards ${result}. This style is characterized by...`;
+        return `Your leadership style tends towards ${result}. This style is often associated with how decisions are made in a group and the approach taken to managing people. For example, a ${result} leader is known for...`;
       case "neurodivergence":
         return result === "Neurotypical"
-          ? "Your results suggest a neurotypical profile. This means..."
-          : `Your results indicate traits associated with ${result}. This neurodivergence is characterized by...`;
+          ? "Your results suggest a neurotypical profile, which generally indicates a cognitive function that aligns with the typical development and processing of information in society. This means you may not experience cognitive differences related to learning, attention, or social interaction."
+          : `Your results indicate traits associated with ${result}. This neurodivergence is characterized by specific cognitive, social, and behavioral differences that might influence how you approach learning, work, and relationships. For example, individuals with ${result} might experience challenges with...`;
       case "personality":
-        return `In the workplace, you exhibit traits of a ${result}. This personality type is known for...`;
+        return `In the workplace, you exhibit traits of a ${result}. This personality type is known for unique characteristics in how individuals interact with others, make decisions, and approach work. For instance, ${result}s tend to be...`;
       default:
         return "No description available.";
     }
+  };
+
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const toggleExpanded = () => {
+    setIsExpanded((prev) => !prev);
   };
 
   return (
@@ -112,6 +118,24 @@ const ResultsPageContent: React.FC = () => {
               {getResultDescription(test, result)}
             </p>
           </div>
+          {isExpanded && (
+            <div className="mt-4 text-gray-700">
+              <p className="text-base">
+                {getResultDescription(test, result)} More detailed information
+                about your results can be added here. For example, additional
+                traits, tips for improving in certain areas, and how others
+                might perceive these results could be discussed in greater
+                detail.
+              </p>
+            </div>
+          )}
+          <Button
+            variant="link"
+            onClick={toggleExpanded}
+            className="text-blue-600"
+          >
+            {isExpanded ? "Show Less" : "Show More"}
+          </Button>
         </CardContent>
         <CardFooter className="flex justify-between">
           <Button asChild variant="outline">
