@@ -1,14 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { useUser } from "@/lib/UserContext";
-import { useRouter } from "next/router";
-
-const router = useRouter();
+import { useRouter } from "next/navigation"; // Move this inside the component
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const { login } = useUser(); // Assuming login is part of your context
+  const router = useRouter(); // Now inside the component
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
