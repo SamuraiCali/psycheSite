@@ -17,7 +17,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {featuredAssessments.map((assessment) => (
               <Card key={assessment.id}>
-                <Link href={`/prototype/assessments/${assessment.slug}`}>
+                <Link href={`/assessments/${assessment.slug}`}>
                   <CardHeader>
                     <CardTitle className="text-blue-600">
                       {assessment.title}
