@@ -1,37 +1,52 @@
-"use client";
-
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import { useUser } from "@/lib/UserContext";
-import { Button } from "@/components/ui/button";
+import { useRouter } from "next/router";
 
-export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const { login } = useUser();
-  const router = useRouter();
+const router = useRouter();
 
-  const handleLogin = () => {
-    if (email) {
-      login({ email, name: "Default Name" });
-      router.push("/user");
+const LoginPage: React.FC = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const { login } = useUser(); // Assuming login is part of your context
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (username && password) {
+      login({ name: username, email: `${username}@example.com` });
+      router.push("/home"); // Redirect to home or wherever after login
+    } else {
+      alert("Please enter both a username and password.");
     }
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="p-6 bg-white rounded shadow-md w-full max-w-sm">
-        <h1 className="text-2xl font-bold mb-4">Login</h1>
-        <input
-          type="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="Enter your email"
-          className="w-full p-2 mb-4 border rounded"
-        />
-        <Button onClick={handleLogin} className="w-full text-black">
-          Login
-        </Button>
-      </div>
+    <div>
+      <h1>Login</h1>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Username:
+          <input
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
+        </label>
+        <br />
+        <label>
+          Password:
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </label>
+        <br />
+        <button type="submit">Login</button>
+      </form>
     </div>
   );
-}
+};
+
+export default LoginPage;
