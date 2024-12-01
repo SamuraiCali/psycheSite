@@ -101,25 +101,25 @@ const ResultsPageContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen p-8 bg-gray-50 flex items-center justify-center">
+    <div className="min-h-screen p-8 flex items-center justify-center" style={{ color: "var(--foreground)", background: "var(--background)" }}>
       <Card className="w-full max-w-2xl">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-blue-600">
             Test Results
           </CardTitle>
         </CardHeader>
-        <CardContent className="space-y-4 text-black">
+        <CardContent className="space-y-4">
           <p className="text-xl font-semibold">
             Test: {test.charAt(0).toUpperCase() + test.slice(1)}
           </p>
           <div className="space-y-2">
             <p className="text-lg font-semibold">Your Result: {result}</p>
-            <p className="text-gray-600">
+            <p>
               {getResultDescription(test, result)}
             </p>
           </div>
           {isExpanded && (
-            <div className="mt-4 text-gray-700">
+            <div className="mt-4 text-gray-400">
               <p className="text-base">
                 {getResultDescription(test, result)} More detailed information
                 about your results can be added here. For example, additional

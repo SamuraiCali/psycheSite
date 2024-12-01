@@ -7,11 +7,11 @@ import { Header } from "@/components/ui/Header";
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ background: "var(--background)" }}>
       <Header />
       <main className="container mx-auto px-4 py-8">
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4 text-blue-800">
+          <h2 className="text-2xl font-semibold mb-4" style={{ color: "var(--foreground)" }}>
             Featured Assessments
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -19,12 +19,12 @@ export default function HomePage() {
               <Card key={assessment.id}>
                 <Link href={`/assessments/${assessment.slug}`}>
                   <CardHeader>
-                    <CardTitle className="text-blue-600">
+                    <CardTitle style={{ color: "var(--foreground)" }}>
                       {assessment.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="mb-4 text-blue-600">
+                    <p className="mb-4" style={{ color: "var(--foreground)" }}>
                       {assessment.description}
                     </p>
                   </CardContent>
@@ -35,7 +35,7 @@ export default function HomePage() {
         </section>
 
         <section className="mb-12">
-          <h2 className="text-2xl font-semibold mb-4 text-blue-800">
+          <h2 className="text-2xl font-semibold mb-4" style={{ color: "var(--foreground)" }}>
             Why Choose Psyche?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -43,14 +43,14 @@ export default function HomePage() {
               <div key={feature.id} className="block">
                 <Card className="h-full hover:shadow-lg transition-shadow">
                   <CardHeader>
-                    <feature.icon className="w-10 h-10 mb-2 text-blue-600" />
-                    <CardTitle className="text-blue-600">
+                    <feature.icon className="w-10 h-10 mb-2" style={{ color: "var(--foreground)" }} />
+                    <CardTitle style={{ color: "var(--foreground)" }}>
                       {feature.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-gray-700">{feature.description}</p>
-                    <p className="mt-2 text-sm text-gray-600">
+                    <p style={{ color: "var(--foreground)" }}>{feature.description}</p>
+                    <p className="mt-2 text-sm" style={{ color: "var(--foreground)" }}>
                       {feature.details}
                     </p>
                   </CardContent>
@@ -60,11 +60,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-blue-50 p-8 rounded-lg">
-          <h2 className="text-2xl font-semibold mb-4 text-blue-800">
-            Start Your Journey Today
-          </h2>
-          <p className="mb-4 text-gray-700">
+        <section className="p-8 rounded-lg" style={{ color: "var(--foreground)", background: "var(--background)" }}>
+          <h2 className="text-2xl font-semibold mb-4">Start Your Journey Today</h2>
+          <p className="mb-4">
             Sign up for our newsletter to receive the latest assessments and
             tips on how to become a high-demand employee.
           </p>
@@ -73,16 +71,15 @@ export default function HomePage() {
               type="email"
               placeholder="Enter your email"
               className="flex-grow"
+              style={{ background: "var(--background)", color: "var(--foreground)" }}
             />
-            <Button type="submit">Subscribe</Button>
+            <Button type="submit" className="bg-blue-600 text-white py-6">Subscribe</Button>
           </form>
         </section>
       </main>
-      <footer className="bg-blue-50 py-6 mt-12">
+      <footer className="py-6 mt-12" style={{ color: "var(--foreground)", background: "var(--background)" }}>
         <div className="container mx-auto px-4 text-center">
-          <p className="text-gray-600">
-            &copy; 2024 Psyche. All rights reserved.
-          </p>
+          <p>&copy; 2024 Psyche. All rights reserved.</p>
         </div>
       </footer>
     </div>
@@ -138,20 +135,9 @@ const features = [
   {
     id: "real-world-scenarios",
     icon: ({ className }: { className?: string }) => (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className={className}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42"
-        />
-      </svg>
+    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 24 24">
+      <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0M2.04 4.326c.325 1.329 2.532 2.54 3.717 3.19.48.263.793.434.743.484q-.121.12-.242.234c-.416.396-.787.749-.758 1.266.035.634.618.824 1.214 1.017.577.188 1.168.38 1.286.983.082.417-.075.988-.22 1.52-.215.782-.406 1.48.22 1.48 1.5-.5 3.798-3.186 4-5 .138-1.243-2-2-3.5-2.5-.478-.16-.755.081-.99.284-.172.15-.322.279-.51.216-.445-.148-2.5-2-1.5-2.5.78-.39.952-.171 1.227.182.078.099.163.208.273.318.609.304.662-.132.723-.633.039-.322.081-.671.277-.867.434-.434 1.265-.791 2.028-1.12.712-.306 1.365-.587 1.579-.88A7 7 0 1 1 2.04 4.327Z"/>
+    </svg>
     ),
     title: "Real-world Scenarios",
     description:

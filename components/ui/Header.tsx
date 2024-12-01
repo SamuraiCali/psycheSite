@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image"
 
 export function Header() {
   return (
@@ -6,7 +7,16 @@ export function Header() {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <div>
-            <h1 className="text-3xl font-bold">Explore Psyche</h1>
+          <div className="flex items-center">
+            <Image
+              src={"/images/PsycheLogoClear.png"}
+              width={64}
+              height={64}
+              alt={`logo`}
+              className="rounded-lg"
+            />
+            <h1 className="text-3xl font-bold ml-4">Explore Psyche</h1>
+          </div>
             <p className="mt-2">Realize your potential, find where you excel</p>
           </div>
           <nav>

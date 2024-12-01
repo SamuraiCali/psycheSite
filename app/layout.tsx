@@ -1,6 +1,4 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { UserProvider } from "@/lib/UserContext";
@@ -21,7 +19,8 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <UserProvider>
-          <main className="container mx-auto px-4 py-8">{children}</main>
+          {/* Removed container and added full height/width styles */}
+          <main className="min-h-screen w-full">{children}</main>
         </UserProvider>
       </body>
     </html>

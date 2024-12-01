@@ -127,7 +127,7 @@ const Assessment: React.FC<AssessmentProps> = ({
   const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   return (
-    <div className="min-h-screen p-8 bg-gray-50 flex items-center justify-center">
+    <div className="min-h-screen p-8 flex items-center justify-center" style={{ color: "var(--foreground)", background: "var(--background)" }}>
       <Card className="w-full max-w-2xl">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-blue-600">
@@ -137,7 +137,7 @@ const Assessment: React.FC<AssessmentProps> = ({
         </CardHeader>
         <CardContent>
           <div className="mb-6">
-            <p className="text-xl font-semibold mb-4 text-gray-800">
+            <p className="text-xl font-semibold mb-4">
               {questions[currentQuestion].question}
             </p>
             <RadioGroup
@@ -154,7 +154,7 @@ const Assessment: React.FC<AssessmentProps> = ({
                   />
                   <Label
                     htmlFor={`option-${index}`}
-                    className="text-gray-700 text-lg cursor-pointer"
+                    className="text-lg cursor-pointer"
                   >
                     {option}
                   </Label>
@@ -168,7 +168,7 @@ const Assessment: React.FC<AssessmentProps> = ({
             onClick={handlePrevious}
             disabled={currentQuestion === 0}
             variant="outline"
-            className="text-blue-600 border-blue-600 hover:bg-blue-50"
+            className="text-blue-600 border-blue-600 hover:bg-gray"
           >
             Previous
           </Button>
