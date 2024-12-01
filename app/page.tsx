@@ -43,7 +43,7 @@ export default function HomePage() {
               <div key={feature.id} className="block">
                 <Card className="h-full hover:shadow-lg transition-shadow">
                   <CardHeader>
-                    <feature.icon className="w-10 h-10 mb-2" style={{ color: "var(--foreground)" }} />
+                    <feature.icon className="w-10 h-10 mb-2" />
                     <CardTitle style={{ color: "var(--foreground)" }}>
                       {feature.title}
                     </CardTitle>
